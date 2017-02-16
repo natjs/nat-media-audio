@@ -31,8 +31,9 @@
 - (void)play:(NSString *)path :(NatCallback)callback{
     self.playBack = callback;
     
-    if (path || ![path isKindOfClass:[NSString class]] || [path isEqualToString:@""]) {
+    if (!path || ![path isKindOfClass:[NSString class]] || [path isEqualToString:@""]) {
         callback(@{@"error":@{@"msg":@"MEDIA_INVALID_ARGUMENT",@"code":@110040}},nil);
+        return;
     }
     
     
